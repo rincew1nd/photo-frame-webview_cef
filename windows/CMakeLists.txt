@@ -88,8 +88,8 @@ target_compile_definitions(${PLUGIN_NAME} PRIVATE NOMINMAX)
 # Zero-copy GPU rendering: bridge CEF's OnAcceleratedPaint D3D11 shared texture
 # straight to a Flutter GPU surface texture (no CPU swizzle / upload). Turn OFF
 # to fall back to the software pixel-buffer path.
-# M0 probe: test the software pixel-buffer path because the GPU shared-texture
-# path fails Flutter's external-texture creation on this Windows/Impeller host.
+# Software pixel-buffer rendering: the GPU shared-texture path fails Flutter
+# external-texture creation on some Windows/Impeller hosts.
 set(WEBVIEW_CEF_GPU_TEXTURE OFF CACHE BOOL "" FORCE)
 option(WEBVIEW_CEF_GPU_TEXTURE "Use the zero-copy GPU texture rendering path" OFF)
 if(WEBVIEW_CEF_GPU_TEXTURE)
